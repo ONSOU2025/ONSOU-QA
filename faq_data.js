@@ -16,7 +16,7 @@ const faqData = [
         subcategory: "🔹 動作環境・スペック",
         question: "Q: 動作する環境を教えてください。",
         answer: "A: 動作環境は、Android、Windowsとなっています。詳細な動作環境は公式サイトをご確認ください。",
-        image: "img/spec_info.png", // 画像パスの例
+        image: null, // 画像パスの例
         popularity: 0,
         date: "2025-10-30"
     },
@@ -25,7 +25,7 @@ const faqData = [
         subcategory: "🔹 動作環境・スペック",
         question: "Q: 推奨されるスマートフォン・タブレット・PCのスペックを教えてください。",
         answer: "A: 推奨環境は、Android OS 13.0以上、Windows OS 10以上、メモリ8GB以上を推奨しています。詳細な動作環境は公式サイトをご確認ください。",
-        image: "img/spec_info.png", // 画像パスの例
+        image: null, // 画像パスの例
         popularity: 0,
         date: "2025-10-30"
     },
@@ -36,7 +36,7 @@ const faqData = [
         subcategory: "🔹 基本操作",
         question: "Q: 操作方法を教えてください",
         answer: "A: 操作方法はPCの場合SDFJKLキーで操作します。ゲーム本体に記載してあります。",
-        image: "img/note_judgment.png", // 画像パスの例
+        image: null, // 画像パスの例
         popularity: 0,
         date: "2025-10-30"
     },
@@ -45,7 +45,7 @@ const faqData = [
         subcategory: "🔹 基本システム",
         question: "Q: ノーツの判定はどのようになっていますか？",
         answer: "A: 判定は「Perfect+」「Perfect」「Great」「Good」「Bad」「Miss」の6種類があります。タイミングに合わせてノーツをタップしてください。",
-        image: "img/note_judgment.png", // 画像パスの例
+        image: null, // 画像パスの例
         popularity: 0,
         date: "2025-10-30"
     },
@@ -54,7 +54,7 @@ const faqData = [
         subcategory: "🔹 基本システム",
         question: "Q: HPが0になったらどうなりますか？",
         answer: "A: HPが0になると、強制的にゲームを終了しリザルト画面へ移行します。",
-        image: "img/note_judgment.png", // 画像パスの例
+        image: null, // 画像パスの例
         popularity: 0,
         date: "2025-10-30"
     },
@@ -63,7 +63,7 @@ const faqData = [
         subcategory: "🔹 基本システム",
         question: "Q: 難易度表記について教えてください。",
         answer: "A: 難易度は下から順に「BASIC」「NORMAL」「ADVANCE」「EXPERT」「MASTER」「Re MASTER」「LUNATIC」「ULTIMATE」「FEAST」の9種類です。",
-        image: "img/note_judgment.png", // 画像パスの例
+        image: null, // 画像パスの例
         popularity: 0,
         date: "2025-10-30"
     },
@@ -72,7 +72,7 @@ const faqData = [
         subcategory: "🔹 基本システム",
         question: "Q: 必要な指の本数を教えてください。",
         answer: "A: このゲームは4本分のタップを前提として作られています。難易度「ULTIMATE」からは、6本必要になる場合もあります",
-        image: "img/note_judgment.png", // 画像パスの例
+        image: null, // 画像パスの例
         popularity: 0,
         date: "2025-10-30"
     },
@@ -81,7 +81,7 @@ const faqData = [
         subcategory: "🔹 基本システム",
         question: "Q: COMBO（コンボ）について教えてください。",
         answer: "A: COMBOは判定が「Good」以上の時に加算され、「Bad」以下の場合にリセットされます。",
-        image: "img/note_judgment.png", // 画像パスの例
+        image: null, // 画像パスの例
         popularity: 0,
         date: "2025-10-30"
     },
@@ -90,7 +90,7 @@ const faqData = [
         subcategory: "🔹 基本システム",
         question: "Q: 途中にリズムゲームを終了することはできますか？。",
         answer: "A: tabキーまたは停止ボタンを押すことでリザルト画面へ移動し終了できます。",
-        image: "img/note_judgment.png", // 画像パスの例
+        image: null, // 画像パスの例
         popularity: 0,
         date: "2025-10-30"
     },
@@ -99,7 +99,7 @@ const faqData = [
         subcategory: "🔹 基本システム",
         question: "Q: 途中にリズムゲームを終了することはできますか？。",
         answer: "A: tabキーまたは停止ボタンを押すことでリザルト画面へ移動し終了できます。",
-        image: "img/note_judgment.png", // 画像パスの例
+        image: null, // 画像パスの例
         popularity: 0,
         date: "2025-10-30"
     },
@@ -119,7 +119,7 @@ const faqData = [
         subcategory: "🔹 設定の最適化",
         question: "Q: 音ズレを調整するための設定はありますか？",
         answer: "A: はい、タイトル画面の設定メニュー内にある「**オフセット**」から、細かく設定できます。ご自身の端末に合わせて調整してください。",
-        image: "img/calibration_screen.png", // 画像パスの例
+        image: null, // 画像パスの例
         popularity: 0,
         date: "2025-10-30" // 新しい質問の例
     },
@@ -128,7 +128,7 @@ const faqData = [
         subcategory: "🔹 判定の設定",
         question: "Q: 難しい場合はどうすればよいですか？",
         answer: "A: タイトル画面の設定メニュー内にある「**判定モード**」から判定の難易度を調整できます。ご自身の実力に合わせて調整してください",
-        image: "img/note_judgment.png", // 画像パスの例
+        image: null, // 画像パスの例
         popularity: 0,
         date: "2025-10-30"
     },
