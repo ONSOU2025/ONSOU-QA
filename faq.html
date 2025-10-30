@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【音奏】Q&A</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-slideshow">
+        <div class="slide current"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+    </div>
+    
+    <div class="background-overlay"></div>
+
+    <header>
+        <h1>🎵 【音奏】FAQ</h1>
+    </header>
+
+    <main class="container">
+        <div class="search-filter-area">
+            <input type="text" id="search-input" placeholder="質問を検索 (キーワード、例: 音ズレ 課金)">
+
+            <div class="controls-group">
+                <select id="category-filter">
+                    </select>
+                <select id="sort-select">
+                    <option value="default">表示順：カテゴリ別</option>
+                    <option value="popularity">表示順：人気順</option>
+                    <option value="newest">表示順：新着順</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="faq-content">
+            </div>
+    </main>
+
+    <script src="faq_data.js"></script>
+    <script src="faq_logic.js"></script>
+    
+    <script>
+        const backgroundImages = [
+            'img/ロード画面.png',
+            'img/難易度選択背景.jpg' 
+        ];
+
+        const slides = document.querySelectorAll('.background-slideshow .slide');
+        let currentSlideIndex = 0;
+
+        // 最初のスライドに画像をセット
+        slides[currentSlideIndex].style.backgroundImage = `url('${backgroundImages[currentSlideIndex]}')`;
+
+        function changeBackgroundSlide() {
+            slides[currentSlideIndex].classList.remove('current');
+            currentSlideIndex = (currentSlideIndex + 1) % backgroundImages.length;
+            const nextSlide = slides[currentSlideIndex];
+            nextSlide.style.backgroundImage = `url('${backgroundImages[currentSlideIndex]}')`;
+            nextSlide.classList.add('current');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('fade-in');
+        });
+
+        setInterval(changeBackgroundSlide, 5000); 
+    </script>
+</body>
+</html>

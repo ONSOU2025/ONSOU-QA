@@ -1,0 +1,285 @@
+/* style.css */
+
+/* -------------------------------------- */
+/* 新しいCSSアニメーションの定義 */
+/* -------------------------------------- */
+@keyframes slide-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes neon-glow {
+    0% { box-shadow: 0 0 5px rgba(0, 191, 255, 0.7), 0 0 10px rgba(0, 191, 255, 0.5); }
+    50% { box-shadow: 0 0 10px rgba(0, 191, 255, 1), 0 0 20px rgba(0, 191, 255, 0.8); }
+    100% { box-shadow: 0 0 5px rgba(0, 191, 255, 0.7), 0 0 10px rgba(0, 191, 255, 0.5); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* -------------------------------------- */
+/* 背景スライドショー */
+/* -------------------------------------- */
+.background-slideshow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* 他のコンテンツの下、さらに背景オーバーレイの下に配置 */
+    overflow: hidden;
+}
+
+.background-slideshow .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0; 
+    transition: opacity 1.5s ease-in-out;
+    filter: brightness(0.6) blur(4px); /* 明るさをさらに抑え、ぼかしを強く */
+}
+
+.background-slideshow .slide.current {
+    opacity: 1; 
+}
+
+/* -------------------------------------- */
+/* 新規追加: 背景オーバーレイ */
+/* -------------------------------------- */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* 半透明の黒いオーバーレイ */
+    z-index: -1; /* スライドショーの上、コンテンツの下 */
+}
+
+
+/* -------------------------------------- */
+/* 基本的なスタイル */
+/* -------------------------------------- */
+body {
+    font-family: 'Rajdhani', sans-serif; 
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+    color: #e0e0e0;
+    background-color: #1a1a2e; 
+    min-height: 100vh; 
+    overflow-x: hidden;
+    opacity: 0; 
+    transition: opacity 0.8s ease-out; 
+}
+
+body.fade-in {
+    opacity: 1;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px 20px;
+    position: relative;
+    z-index: 10;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5em;
+    color: #00e6e6;
+    /* text-shadow をより強く、複数の色で視認性向上 */
+    text-shadow: 
+        0 0 8px rgba(0, 230, 230, 0.9), /* 本体に近い色 */
+        0 0 15px rgba(0, 230, 230, 0.7), /* 強い光 */
+        0 0 25px rgba(0, 0, 0, 0.8); /* 背景とのコントラストを補強する暗い影 */
+    margin: 0;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 25px;
+    /* 背景色と透過度を調整し、より視認性高く */
+    background: rgba(10, 10, 20, 0.7); /* 暗めの背景色で不透明度を上げる */
+    backdrop-filter: blur(12px); /* ぼかしを少し強く */
+    border-radius: 15px;
+    border: 1px solid rgba(0, 191, 255, 0.2); /* わずかなネオンボーダー */
+    box-shadow: 0 0 30px rgba(0, 191, 255, 0.3); 
+    position: relative;
+    z-index: 5;
+    animation: fadeIn 1.2s ease-out forwards 0.3s; 
+    opacity: 0; 
+}
+
+/* 検索・フィルタリングエリアのスタイル */
+.search-filter-area {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.search-filter-area input[type="text"],
+.search-filter-area select {
+    padding: 12px;
+    border: 1px solid rgba(0, 191, 255, 0.5); 
+    border-radius: 8px;
+    font-size: 1em;
+    width: 90%;
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.15); /* 少し不透明度を上げる */
+    color: #e0e0e0;
+    margin-bottom: 15px;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
+    transition: all 0.3s ease;
+}
+.search-filter-area input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* プレースホルダーの視認性向上 */
+}
+.search-filter-area input[type="text"]:focus,
+.search-filter-area select:focus {
+    border-color: #00e6e6;
+    box-shadow: 0 0 15px rgba(0, 230, 230, 0.6);
+}
+
+.controls-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap; 
+}
+.controls-group select {
+    max-width: 200px;
+    margin-top: 0; 
+}
+
+
+/* Q&Aコンテンツのスタイル */
+#faq-content {
+    /* 背景色などはcontainerで指定済み */
+}
+.category-section {
+    margin-bottom: 30px;
+    padding: 15px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1); 
+}
+.category-section:last-of-type {
+    border-bottom: none; 
+}
+
+h2 {
+    font-family: 'Orbitron', sans-serif;
+    border-bottom: none; 
+    color: #00ffff; 
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+}
+h3 {
+    font-family: 'Rajdhani', sans-serif;
+    color: #a0ffff; 
+    margin-top: 15px;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+/* アコーディオンメニューのスタイル */
+.accordion {
+    background-color: rgba(0, 0, 0, 0.3); /* 少し濃く */
+    color: #e0e0e0;
+    cursor: pointer;
+    padding: 18px 20px;
+    width: 100%;
+    border: 1px solid rgba(0, 191, 255, 0.2); 
+    border-radius: 8px;
+    text-align: left;
+    outline: none;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 5px rgba(0, 191, 255, 0.1);
+}
+.accordion:hover {
+    background-color: rgba(0, 0, 0, 0.5); /* ホバー時も濃く */
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.4);
+    border-color: rgba(0, 191, 255, 0.5);
+}
+.accordion.active {
+    background-color: rgba(0, 0, 0, 0.6); /* アクティブ時も濃く */
+    color: #00e6e6;
+    border-color: #00e6e6;
+    box-shadow: 0 0 20px rgba(0, 230, 230, 0.5);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.panel {
+    padding: 15px 20px;
+    background-color: rgba(0, 0, 0, 0.4); /* アコーディオンの背景色も濃く */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, background-color 0.3s ease;
+    border: 1px solid rgba(0, 191, 255, 0.2);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    color: #c0c0c0; 
+}
+.panel p strong {
+    color: #00ffff; 
+}
+
+.accordion::after {
+    content: '▶';
+    font-size: 1.2em;
+    color: #00bfff;
+    margin-left: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+.accordion.active::after {
+    content: '▼';
+    transform: rotate(90deg); 
+}
+
+.panel img {
+    border: 1px solid rgba(0, 191, 255, 0.3);
+    padding: 5px;
+    border-radius: 8px;
+    max-width: 100%; 
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.3); 
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+    }
+    .container {
+        margin: 20px;
+        padding: 15px;
+    }
+    .search-filter-area input[type="text"],
+    .controls-group select {
+        width: 100%;
+        max-width: none;
+        margin-bottom: 10px;
+    }
+    .controls-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
