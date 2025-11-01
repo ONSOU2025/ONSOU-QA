@@ -339,3 +339,13 @@ h3 {
         gap: 10px;
     }
 }
+
+.fixed-logo { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* 9999よりも大きな値に変更 */
+    z-index: **10000**; 
+    width: 100px; 
+    height: auto; /* widthを指定したらこれも付けておくと安心 */
+}
