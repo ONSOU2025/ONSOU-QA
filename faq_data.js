@@ -6,8 +6,7 @@ const faqData = [
         category: "1. 始める前の準備",
         subcategory: "🔹 ダウンロード・インストール",
         question: "Q: どこからゲームをダウンロードできますか？",
-        answer: "A: 公式サイトのダウンロードページ（GoogleDrive）からダウンロードできます。
-        https://so-ma-web.github.io/onsou-2025/",
+        answer: "A: 公式サイトのダウンロードページ（GoogleDrive）からダウンロードできます。",
         image: null,
         popularity: 0, // 人気度
         date: "2025-10-30" // 作成日
@@ -341,3 +340,4 @@ sortSelect.addEventListener('change', applyFiltersAndSort);
 // 初期化処理
 setupFilters();
 applyFiltersAndSort(); // ページロード時に全コンテンツを描画
+
