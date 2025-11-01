@@ -6,7 +6,8 @@ const faqData = [
         category: "1. 始める前の準備",
         subcategory: "🔹 ダウンロード・インストール",
         question: "Q: どこからゲームをダウンロードできますか？",
-        answer: "A: 公式サイトのダウンロードページ（GoogleDrive）からダウンロードできます。",
+        answer: "A: 公式サイトのダウンロードページ（GoogleDrive）からダウンロードできます。
+        https://so-ma-web.github.io/onsou-2025/",
         image: null,
         popularity: 0, // 人気度
         date: "2025-10-30" // 作成日
@@ -35,7 +36,7 @@ const faqData = [
         category: "2. ゲームの基本",
         subcategory: "🔹 基本操作",
         question: "Q: 操作方法を教えてください",
-        answer: "A: 操作方法はPCの場合SDFJKLキーで操作します。ゲーム本体に記載してあります。",
+        answer: "A: 操作方法はPCの場合**SDFJKLキー**で操作します。ゲーム本体に記載してあります。",
         image: null, // 画像パスの例
         popularity: 0,
         date: "2025-10-30"
@@ -53,10 +54,28 @@ const faqData = [
         category: "2. ゲームの基本",
         subcategory: "🔹 基本システム",
         question: "Q: HPが0になったらどうなりますか？",
-        answer: "A: HPが0になると、強制的にゲームを終了しリザルト画面へ移行します。",
+        answer: "A: HPが0になると、**強制的にゲームを終了しリザルト画面へ**移行します。",
         image: null, // 画像パスの例
         popularity: 0,
         date: "2025-10-30"
+    },
+    {
+        category: "2. ゲームの基本",
+        subcategory: "🔹 基本システム",
+        question: "Q: リザルト画面のカメラマークは何ですか？",
+        answer: "A: リザルト画面のカメラマークはリザルト画面の**スクリーンショット**を撮影できます。",
+        image: null, // 画像パスの例
+        popularity: 0,
+        date: "2025-10-31"
+    },
+    {
+        category: "2. ゲームの基本",
+        subcategory: "🔹 基本システム",
+        question: "Q: リザルト画面で撮ったスクリーンショットはどこで見れますか？",
+        answer: "A: スクリーンショットは楽曲選択画面の**ライブラリーボタン**から見ることができます。",
+        image: null, // 画像パスの例
+        popularity: 0,
+        date: "2025-10-31"
     },
     {
         category: "2. ゲームの基本",
@@ -89,16 +108,7 @@ const faqData = [
         category: "2. ゲームの基本",
         subcategory: "🔹 基本システム",
         question: "Q: 途中にリズムゲームを終了することはできますか？。",
-        answer: "A: tabキーまたは停止ボタンを押すことでリザルト画面へ移動し終了できます。",
-        image: null, // 画像パスの例
-        popularity: 0,
-        date: "2025-10-30"
-    },
-    {
-        category: "2. ゲームの基本",
-        subcategory: "🔹 基本システム",
-        question: "Q: 途中にリズムゲームを終了することはできますか？。",
-        answer: "A: tabキーまたは停止ボタンを押すことでリザルト画面へ移動し終了できます。",
+        answer: "A: **tabキーまたは停止ボタン**を押すことでリザルト画面へ移動し終了できます。",
         image: null, // 画像パスの例
         popularity: 0,
         date: "2025-10-30"
@@ -141,13 +151,22 @@ const faqData = [
         popularity: 0,
         date: "2025-10-30"
     },
+    {
+        category: "3. プレイと上達",
+        subcategory: "🔹 上達のコツ",
+        question: "Q: キーを間違えないようにする方法はありますか？",
+        answer: "A: **キーに指などを常駐**しておくと、より押し間違えが削減できます。",
+        image: null,
+        popularity: 0,
+        date: "2025-10-31"
+    },
     
     // 4. トラブル・サポート
     {
         category: "4. トラブル・サポート",
         subcategory: "🔹 不具合・バグ",
         question: "Q: ゲームが頻繁にフリーズします。",
-        answer: "A: 他のアプリを終了させたり、端末を再起動することで改善する場合があります。それでも解決しない場合は、OSとアプリのバージョンを添えて公式ディスコードサーバーや、公式X（旧Twitter）にご報告お願いします。",
+        answer: "A: 他のアプリを終了させたり、端末を再起動することで改善する場合があります。それでも解決しない場合は、OSとアプリのバージョンを添えて**公式ディスコードサーバーや、公式X（旧Twitter）**にご報告お願いします。",
         image: null,
         popularity: 0,
         date: "2025-10-30"
