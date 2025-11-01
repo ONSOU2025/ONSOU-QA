@@ -17,6 +17,8 @@
     
     <div class="background-overlay"></div>
 
+    <div id="particles-container"></div>
+
     <header>
         <h1>🎵 【音奏】FAQ</h1>
     </header>
@@ -52,7 +54,6 @@
         const slides = document.querySelectorAll('.background-slideshow .slide');
         let currentSlideIndex = 0;
 
-        // 最初のスライドに画像をセット
         slides[currentSlideIndex].style.backgroundImage = `url('${backgroundImages[currentSlideIndex]}')`;
 
         function changeBackgroundSlide() {
@@ -65,9 +66,43 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.add('fade-in');
+            // H1にフリッカーアニメーションを適用するクラスを追加
+            document.querySelector('h1').classList.add('neon-flicker');
         });
 
         setInterval(changeBackgroundSlide, 5000); 
+
+        // --- カーソル追従パーティクル (星屑) エフェクト ---
+        const particlesContainer = document.getElementById('particles-container');
+
+        document.addEventListener('mousemove', (e) => {
+            const particle = document.createElement('span');
+            particle.classList.add('particle');
+            particlesContainer.appendChild(particle);
+
+            particle.style.left = `${e.clientX}px`;
+            particle.style.top = `${e.clientY}px`;
+            
+            // ランダムな色とサイズ
+            const size = Math.random() * 5 + 2; // 2pxから7px
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            const hue = Math.random() * 360; // 0-360のランダムな色相
+            particle.style.backgroundColor = `hsl(${hue}, 80%, 70%)`;
+
+            // アニメーション終了後に要素を削除
+            particle.onanimationend = () => {
+                particle.remove();
+            };
+        });
+
+        // --- アコーディオンのグリッチ効果 ---
+        // faq_logic.js の setupAccordionListeners を拡張するか、
+        // もしくはここでアコーディオン要素を再度取得してイベントを追加します。
+        // 今回は、faq_logic.jsとの連携を考慮し、グリッチエフェクトを
+        // style.css の :active 擬似クラスと animation で実装します。
+        // ※ JavaScriptで複雑なグリッチ効果を実装することも可能ですが、
+        //    CSSでのシンプルな表現に留めます。
     </script>
 </body>
 </html>
