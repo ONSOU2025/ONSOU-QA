@@ -1,351 +1,137 @@
-/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
-/* -------------------------------------- */
-/* 新しいCSSアニメーションの定義 */
-/* -------------------------------------- */
-@keyframes slide-fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes neon-glow {
-    0% { box-shadow: 0 0 5px rgba(0, 191, 255, 0.7), 0 0 10px rgba(0, 191, 255, 0.5); }
-    50% { box-shadow: 0 0 10px rgba(0, 191, 255, 1), 0 0 20px rgba(0, 191, 255, 0.8); }
-    100% { box-shadow: 0 0 5px rgba(0, 191, 255, 0.7), 0 0 10px rgba(0, 191, 255, 0.5); }
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* H1 ネオンフリッカー効果 */
-@keyframes flicker {
-    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-        text-shadow: 
-            0 0 8px rgba(0, 230, 230, 0.9), 
-            0 0 15px rgba(0, 230, 230, 0.7),
-            0 0 25px rgba(0, 0, 0, 0.8);
-    }
-    20%, 24%, 55% {        
-        text-shadow: none; /* 一瞬光が消える */
-    }
-}
-
-/* アコーディオン開閉時のグリッチ風アニメーション */
-@keyframes glitch-effect {
-    0% { transform: translate(0); filter: hue-rotate(0deg); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(-2px, -2px); }
-    60% { transform: translate(2px, 2px); }
-    80% { transform: translate(2px, -2px); }
-    100% { transform: translate(0); filter: hue-rotate(360deg); }
-}
-
-/* カーソル追従パーティクルアニメーション */
-@keyframes particle-fade-out {
-    0% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(0); opacity: 0; }
-}
-
-
-/* -------------------------------------- */
-/* 背景スライドショー */
-/* -------------------------------------- */
-.background-slideshow {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-    overflow: hidden;
-}
-
-.background-slideshow .slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center center;
-    opacity: 0; 
-    transition: opacity 1.5s ease-in-out;
-    filter: brightness(0.6) blur(4px); 
-}
-
-.background-slideshow .slide.current {
-    opacity: 1; 
-}
-
-/* -------------------------------------- */
-/* 背景オーバーレイ */
-/* -------------------------------------- */
-.background-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); 
-    z-index: -1; 
-}
-
-/* -------------------------------------- */
-/* カーソル追従パーティクル */
-/* -------------------------------------- */
-#particles-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* パーティクルが他の要素のクリックを妨げないように */
-    z-index: 9999; /* 最前面に表示 */
-}
-
-.particle {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0;
-    animation: particle-fade-out 0.8s ease-out forwards; /* フェードアウトアニメーション */
-    transform: scale(0); /* 初期サイズ0 */
-}
-
-
-/* -------------------------------------- */
-/* 基本的なスタイル */
-/* -------------------------------------- */
+/* ヘッダーの高さに合わせてbodyの上部にパディングを追加 */
 body {
-    font-family: 'Rajdhani', sans-serif;
-    line-height: 1.6;
-    padding: 0;
-    margin: 0;
-    color: #e0e0e0;
-    background-color: #1a1a2e; 
-    min-height: 100vh; 
-    overflow-x: hidden;
-    opacity: 0; 
-    transition: opacity 0.8s ease-out; 
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f8f8;
+    color: #1a202c;
+    scroll-behavior: smooth;
+    /* ヘッダーの高さ（約80px）に合わせてパディングを追加 */
+    padding-top: 5rem; /* 80px相当 */
 }
 
-body.fade-in {
-    opacity: 1;
+/* ヘッダーの固定スタイル */
+.fixed-header {
+    position: fixed; /* 画面に固定 */
+    top: 0; /* 上端に配置 */
+    left: 0; /* 左端に配置 */
+    right: 0; /* 右端に配置 */
+    z-index: 100; /* 他の要素の上に表示 */
+    background-color: #ffffff; /* 背景色 */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06); /* 影 */
 }
 
-header {
-    text-align: center;
-    padding: 40px 20px 20px;
-    position: relative;
-    z-index: 10;
-}
 
-h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 3.5em;
-    color: #00e6e6;
-    text-shadow: 
-        0 0 8px rgba(0, 230, 230, 0.9), 
-        0 0 15px rgba(0, 230, 230, 0.7),
-        0 0 25px rgba(0, 0, 0, 0.8);
-    margin: 0;
-    animation: fadeIn 1s ease-out forwards;
-}
-
-/* H1 ネオンフリッカー効果の適用 */
-h1.neon-flicker {
-    animation: flicker 4s infinite alternate; /* 4秒かけて不規則に点滅 */
-}
-
-.container {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 25px;
-    background: rgba(10, 10, 20, 0.7); 
-    backdrop-filter: blur(12px); 
-    border-radius: 15px;
-    border: 1px solid rgba(0, 191, 255, 0.2); 
-    box-shadow: 0 0 30px rgba(0, 191, 255, 0.3); 
-    position: relative;
-    z-index: 5;
-    animation: fadeIn 1.2s ease-out forwards 0.3s; 
-    opacity: 0; 
-}
-
-/* 検索・フィルタリングエリアのスタイル */
-.search-filter-area {
-    text-align: center;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-.search-filter-area input[type="text"],
-.search-filter-area select {
-    padding: 12px;
-    border: 1px solid rgba(0, 191, 255, 0.5); 
-    border-radius: 8px;
-    font-size: 1em;
-    width: 90%;
-    max-width: 400px;
-    background-color: rgba(255, 255, 255, 0.15); 
-    color: #e0e0e0;
-    margin-bottom: 15px;
-    outline: none;
-    box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
-    transition: all 0.3s ease;
-}
-.search-filter-area input[type="text"]::placeholder {
-    color: rgba(255, 255, 255, 0.7); 
-}
-.search-filter-area input[type="text"]:focus,
-.search-filter-area select:focus {
-    border-color: #00e6e6;
-    box-shadow: 0 0 15px rgba(0, 230, 230, 0.6);
-}
-
-.controls-group {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap; 
-}
-.controls-group select {
-    max-width: 200px;
-    margin-top: 0; 
-}
-
-/* Q&Aコンテンツのスタイル */
-#faq-content {
-    /* 背景色などはcontainerで指定済み */
-}
+/* Q&Aセクションのスタイル */
 .category-section {
-    margin-bottom: 30px;
-    padding: 15px 0;
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.1); 
-}
-.category-section:last-of-type {
-    border-bottom: none; 
+    margin-bottom: 2rem;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
-h2 {
-    font-family: 'Orbitron', sans-serif;
-    border-bottom: none; 
-    color: #00ffff; 
-    padding-bottom: 5px;
-    margin-bottom: 20px;
-    font-size: 2em;
-    text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
-}
-h3 {
-    font-family: 'Rajdhani', sans-serif;
-    color: #a0ffff; 
-    margin-top: 15px;
-    font-size: 1.3em;
-    margin-bottom: 10px;
+.category-section h2 {
+    font-size: 2.25rem; /* text-3xl */
+    font-weight: 800; /* font-extrabold */
+    color: #06b6d4; /* cyan-500 */
+    border-bottom: 3px solid #06b6d4;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    background-color: #f0f9ff; /* cyan-50 */
 }
 
-/* アコーディオンメニューのスタイル */
+.category-section h3 {
+    font-size: 1.5rem; /* text-xl */
+    font-weight: 700; /* font-bold */
+    color: #1f2937; /* gray-800 */
+    background-color: #e0f7fa; /* cyan-50 */
+    padding: 0.5rem 1rem;
+    margin-top: 0; /* カテゴリセクションのh2から続くように余白を調整 */
+    margin-bottom: 0;
+}
+
+/* アコーディオンボタン (質問) のスタイル */
 .accordion {
-    background-color: rgba(0, 0, 0, 0.3); 
-    color: #e0e0e0;
+    background-color: #ffffff;
+    color: #1f2937; /* gray-800 */
     cursor: pointer;
-    padding: 18px 20px;
+    padding: 1.5rem;
     width: 100%;
-    border: 1px solid rgba(0, 191, 255, 0.2); 
-    border-radius: 8px;
     text-align: left;
+    border: none;
     outline: none;
-    font-size: 1.1em;
-    transition: all 0.3s ease;
-    margin-top: 8px;
+    transition: background-color 0.4s ease;
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 600; /* font-semibold */
+    border-bottom: 1px solid #e5e7eb; /* gray-200 */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 0 5px rgba(0, 191, 255, 0.1);
-    position: relative; /* グリッチエフェクトのために必要 */
-    overflow: hidden; /* グリッチの飛び出しを隠す */
-}
-.accordion:hover {
-    background-color: rgba(0, 0, 0, 0.5); 
-    box-shadow: 0 0 15px rgba(0, 191, 255, 0.4);
-    border-color: rgba(0, 191, 255, 0.5);
-}
-.accordion.active {
-    background-color: rgba(0, 0, 0, 0.6); 
-    color: #00e6e6;
-    border-color: #00e6e6;
-    box-shadow: 0 0 20px rgba(0, 230, 230, 0.5);
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    animation: glitch-effect 0.5s ease-in-out forwards; /* アクティブ時にグリッチ効果 */
 }
 
+.accordion:hover {
+    background-color: #f3f4f6; /* gray-100 */
+}
+
+/* アクティブな質問とホバー時のスタイル */
+.accordion.active {
+    background-color: #e0f2f7; /* cyan-100 */
+    color: #06b6d4; /* cyan-500 */
+    border-bottom: 1px solid #bae6fd; /* cyan-200 */
+}
+
+/* 最後の質問ボタンはボーダーを非表示 */
+.category-section .accordion:last-of-type {
+    border-bottom: none;
+}
+
+/* アイコン（+ / -）のスタイル */
+.accordion::after {
+    content: '\002B'; /* Unicode for a plus sign */
+    color: #06b6d4;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.accordion.active::after {
+    content: "\2212"; /* Unicode for a minus sign */
+    transform: rotate(360deg);
+}
+
+/* 回答 (パネル) のスタイル */
 .panel {
-    padding: 15px 20px;
-    background-color: rgba(0, 0, 0, 0.4); 
+    padding: 0 1.5rem;
+    background-color: white;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease-in-out, background-color 0.3s ease;
-    border: 1px solid rgba(0, 191, 255, 0.2);
-    border-top: none;
-    border-radius: 0 0 8px 8px;
-    color: #c0c0c0; 
-}
-.panel p strong {
-    color: #00ffff; 
+    transition: max-height 0.4s ease-out;
+    border-bottom: 1px solid #e5e7eb; /* gray-200 */
 }
 
-.accordion::after {
-    content: '▶';
-    font-size: 1.2em;
-    color: #00bfff;
-    margin-left: 10px;
-    transition: transform 0.3s ease-in-out;
-}
-.accordion.active::after {
-    content: '▼';
-    transform: rotate(90deg); 
+.panel p {
+    padding: 1rem 0;
+    color: #4b5563; /* gray-600 */
+    line-height: 1.6;
 }
 
+/* 回答内の太字を強調 */
+.panel strong {
+    color: #0891b2; /* cyan-600 */
+    font-weight: 700;
+}
+
+/* 画像スタイル（FAQコンテンツ内） */
 .panel img {
-    border: 1px solid rgba(0, 191, 255, 0.3);
-    padding: 5px;
-    border-radius: 8px;
-    max-width: 100%; 
-    height: auto;
-    margin-top: 20px;
-    margin-bottom: 15px;
-    box-shadow: 0 0 15px rgba(0, 191, 255, 0.3); 
-}
-
-/* レスポンシブデザイン */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2.5em;
-    }
-    .container {
-        margin: 20px;
-        padding: 15px;
-    }
-    .search-filter-area input[type="text"],
-    .controls-group select {
-        width: 100%;
-        max-width: none;
-        margin-bottom: 10px;
-    }
-    .controls-group {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-
-.fixed-logo { 
-    position: fixed;
-    top: 0;
-    left: 0;
-    /* 9999よりも大きな値に変更 */
-    z-index: **10000**; 
-    width: 100px; 
-    height: auto; /* widthを指定したらこれも付けておくと安心 */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
